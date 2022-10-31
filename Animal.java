@@ -4,7 +4,7 @@
 * class, however, contains methods for controlling the size and x and y location
 * of an Animal as well as causing the Animal to walk around and remain on the screen.
 *
-* Note that this class (nor its sub-classes) cannot be instantiated without first
+* Note that neither this class (nor its sub-classes) can be instantiated without first
 * calling the function {@code setDim(x,y)} and specifying the sketch dimmensions
 * in which the class will be deployed.
 *
@@ -58,6 +58,17 @@ public abstract class Animal {
   public void move(int x, int y) {
     this.xLoc = x;
     this.yLoc = y;
+  }
+  
+  /**
+  * Validate and update the size of the Animal.
+  */
+  public void setSize(int s) {
+      if (s <= 0) {
+          throw new IllegalArgumentException("Animal size must be positive. Given: " + s);
+      }
+      
+      this.size = s;
   }
 
   /**
